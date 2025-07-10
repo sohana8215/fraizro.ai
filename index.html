@@ -60,49 +60,49 @@
   <button onclick="sendMessage()">Send</button>
 
   <script>
-    async function sendMessage() {
-      const input = document.getElementById("userInput");
-      const userText = input.value.trim();
-      if (!userText) return;
+  async function sendMessage() {
+    const input = document.getElementById("userInput");
+    const userText = input.value.trim();
+    if (!userText) return;
 
-      const chatbox = document.getElementById("chatbox");
+    const chatbox = document.getElementById("chatbox");
 
-      // Show user message
-      const userMsg = document.createElement("div");
-      userMsg.className = "message user";
-      userMsg.textContent = "You: " + userText;
-      chatbox.appendChild(userMsg);
-      chatbox.scrollTop = chatbox.scrollHeight;
+    const userMsg = document.createElement("div");
+    userMsg.className = "message user";
+    userMsg.textContent = "You: " + userText;
+    chatbox.appendChild(userMsg);
+    chatbox.scrollTop = chatbox.scrollHeight;
 
-      input.value = "Thinking...";
+    input.value = "Thinking...";
 
-      let botReply = "";
+    let botReply = "";
 
-      try {
-        // Try DuckDuckGo API
-        const res = await fetch(`https://api.duckduckgo.com/?q=${encodeURIComponent(userText)}&format=json&no_redirect=1&no_html=1`);
-        const data = await res.json();
-        botReply = data.AbstractText || data.Answer;
+    try {
+      // ✅ Use proxy to bypass CORS
+      const duckURL = `https://corsproxy.io/?https://api.duckduckgo.com/?q=${encodeURIComponent(userText)}&format=json&no_redirect=1&no_html=1`;
+      const res = await fetch(duckURL);
+      const data = await res.json();
+      botReply = data.AbstractText || data.Answer;
 
-        // If no result, try Wikipedia
-        if (!botReply || botReply.trim() === "") {
-          const wiki = await fetch(`https://en.wikipedia.org/api/rest_v1/page/summary/${encodeURIComponent(userText)}`);
-          const wikiData = await wiki.json();
-          botReply = wikiData.extract || "আমি এখন এই প্রশ্নের উত্তর দিতে পারছি না। দয়া করে সহজভাবে জিজ্ঞেস করুন।";
-        }
-      } catch (err) {
-        botReply = "দুঃখিত, কিছু সমস্যা হয়েছে। পরে আবার চেষ্টা করুন।";
+      if (!botReply || botReply.trim() === "") {
+        const wikiURL = `https://en.wikipedia.org/api/rest_v1/page/summary/${encodeURIComponent(userText)}`;
+        const wiki = await fetch(wikiURL);
+        const wikiData = await wiki.json();
+        botReply = wikiData.extract || "আমি এখন এই প্রশ্নের উত্তর দিতে পারছি না। দয়া করে সহজভাবে জিজ্ঞেস করুন।";
       }
-
-      // Show bot reply
-      const botMsg = document.createElement("div");
-      botMsg.className = "message bot";
-      botMsg.textContent = "Bot: " + botReply;
-      chatbox.appendChild(botMsg);
-      chatbox.scrollTop = chatbox.scrollHeight;
-
-      input.value = "";
+    } catch (err) {
+      botReply = "দুঃখিত, কিছু সমস্যা হয়েছে। পরে আবার চেষ্টা করুন।";
     }
-  </script>
+
+    const botMsg = document.createElement("div");
+    botMsg.className = "message bot";
+    botMsg.textContent = "Bot: " + botReply;
+    chatbox.appendChild(botMsg);
+    chatbox.scrollTop = chatbox.scrollHeight;
+
+    input.value = "";
+  }
+</script>
+
 </body>
 </html>
