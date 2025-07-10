@@ -1,7 +1,108 @@
 <!DOCTYPE html>
-<html>
-  <head><title>Fraizro Test</title></head>
-  <body>
-    <h1>Hello from Fraizro.ai ✅</h1>
-  </body>
+<html lang="bn">
+<head>
+  <meta charset="UTF-8">
+  <title>Fraizro.ai - Bangla Smart Chatbot</title>
+  <style>
+    body {
+      background: #121212;
+      color: #f1f1f1;
+      font-family: 'Segoe UI', sans-serif;
+      padding: 20px;
+      text-align: center;
+    }
+    h1 {
+      color: #00ffcc;
+    }
+    #chatbox {
+      max-width: 500px;
+      margin: auto;
+      background: #1e1e1e;
+      padding: 20px;
+      border-radius: 12px;
+      box-shadow: 0 0 10px #00ffcc33;
+      height: 400px;
+      overflow-y: auto;
+    }
+    .message {
+      text-align: left;
+      margin: 10px 0;
+    }
+    .user { color: #66ccff; }
+    .bot { color: #aaffaa; }
+    input[type="text"] {
+      width: 75%;
+      padding: 10px;
+      border-radius: 5px;
+      border: none;
+      margin-top: 15px;
+    }
+    button {
+      padding: 10px 15px;
+      margin-left: 10px;
+      background: #00ffcc;
+      color: #000;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    button:hover {
+      background: #00ccaa;
+    }
+  </style>
+</head>
+<body>
+  <h1>🤖 Fraizro.ai - বাংলা বুদ্ধিমান চ্যাটবট</h1>
+  <div id="chatbox">
+    <div class="message bot">Bot: কিভাবে সাহায্য করতে পারি আপনাকে?</div>
+  </div>
+  <input type="text" id="userInput" placeholder="Type here in Bangla or English..." />
+  <button onclick="sendMessage()">Send</button>
+
+  <script>
+    async function sendMessage() {
+      const input = document.getElementById("userInput");
+      const userText = input.value.trim();
+      if (!userText) return;
+
+      const chatbox = document.getElementById("chatbox");
+
+      // Show user message
+      const userMsg = document.createElement("div");
+      userMsg.className = "message user";
+      userMsg.textContent = "You: " + userText;
+      chatbox.appendChild(userMsg);
+      chatbox.scrollTop = chatbox.scrollHeight;
+
+      input.value = "Thinking...";
+
+      let botReply = "";
+
+      try {
+        // Try DuckDuckGo API
+        const res = await fetch(`https://api.duckduckgo.com/?q=${encodeURIComponent(userText)}&format=json&no_redirect=1&no_html=1`);
+        const data = await res.json();
+        botReply = data.AbstractText || data.Answer;
+
+        // If no result, try Wikipedia
+        if (!botReply || botReply.trim() === "") {
+          const wiki = await fetch(`https://en.wikipedia.org/api/rest_v1/page/summary/${encodeURIComponent(userText)}`);
+          const wikiData = await wiki.json();
+          botReply = wikiData.extract || "আমি এখন এই প্রশ্নের উত্তর দিতে পারছি না। দয়া করে সহজভাবে জিজ্ঞেস করুন।";
+        }
+      } catch (err) {
+        botReply = "দুঃখিত, কিছু সমস্যা হয়েছে। পরে আবার চেষ্টা করুন।";
+      }
+
+      // Show bot reply
+      const botMsg = document.createElement("div");
+      botMsg.className = "message bot";
+      botMsg.textContent = "Bot: " + botReply;
+      chatbox.appendChild(botMsg);
+      chatbox.scrollTop = chatbox.scrollHeight;
+
+      input.value = "";
+    }
+  </script>
+</body>
 </html>
