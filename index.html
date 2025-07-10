@@ -1,107 +1,83 @@
-<!DOCTYPE html>
-<html lang="bn">
-<head>
-  <meta charset="UTF-8">
-  <title>Fraizro.ai - Bangla Smart Chatbot</title>
-  <style>
-    body {
-      background: #121212;
-      color: #f1f1f1;
-      font-family: 'Segoe UI', sans-serif;
-      padding: 20px;
-      text-align: center;
-    }
-    h1 {
-      color: #00ffcc;
-    }
-    #chatbox {
-      max-width: 500px;
-      margin: auto;
-      background: #1e1e1e;
-      padding: 20px;
-      border-radius: 12px;
-      box-shadow: 0 0 10px #00ffcc33;
-      height: 400px;
-      overflow-y: auto;
-    }
-    .message {
-      text-align: left;
-      margin: 10px 0;
-    }
-    .user { color: #66ccff; }
-    .bot { color: #aaffaa; }
-    input[type="text"] {
-      width: 75%;
-      padding: 10px;
-      border-radius: 5px;
-      border: none;
-      margin-top: 15px;
-    }
-    button {
-      padding: 10px 15px;
-      margin-left: 10px;
-      background: #00ffcc;
-      color: #000;
-      border: none;
-      border-radius: 5px;
-      cursor: pointer;
-    }
-    button:hover {
-      background: #00ccaa;
-    }
-  </style>
-</head>
-<body>
-  <h1>🤖 Fraizro.ai - বাংলা বুদ্ধিমান চ্যাটবট</h1>
-  <div id="chatbox">
-    <div class="message bot">Bot: কিভাবে সাহায্য করতে পারি আপনাকে?</div>
-  </div>
-  <input type="text" id="userInput" placeholder="Type here in Bangla or English..." />
-  <button onclick="sendMessage()">Send</button>
+<svg fill="#af002a" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="800px" height="800px" viewBox="0 0 243 260" enable-background="new 0 0 243 260" xml:space="preserve">
+	<path id="dragon" d="M218.97,42.44c0-16.84,8.79-31.63,22.03-40.01C237.97,2.14,234.61,2,231.51,2c-28.96,0-54.69,12.55-72.64,32.5
+	c5.9,9.44,9.4,21.21,9.4,33.95c0,16.84-6.11,31.94-15.78,42.27c-9.49-12.82-26.03-21.06-33.8-26.07c-2.55-1.65-4.66-4.37-4.66-7.59
+	c0-4.41,3.59-8,8-8c3.58,0,5.73,2.9,7.79,5.59c1.95,2.54,6.82,8.2,9.17,10.93c1.13,1.31,2.96,1.78,4.58,1.17l4.42-1.65l-3.53-1.51
+	c0,0-3.5-7.69-4.76-10.83l11.4,5.71l-0.57,4.83l5.69-5.61c1.17-1.16,1.16-3.05-0.03-4.18l-4.57-4.37
+	c-3.16-3.73-3.54-9.26-6.01-14.83c-3.57-8.1-8.47-12.85-8.47-12.85c0,5.91-1.98,9.85-1.98,9.85s-7.026-3.742-16.188-2.637
+	c-8.413,0.053-16.256-5.006-19.498-13.054c0,0.001,0,0.001,0,0.002l-0.001-0.003c0,0-2.495,10.936,6.951,17.813
+	c-0.144,0.097-0.287,0.194-0.43,0.295c-5.875,1.924-12.494,0.107-16.52-4.828c0,0-0.934,7.141,3.62,11.421
+	c1.397,1.313,2.93,1.878,4.386,2.036c-2.713,3.974-4.607,8.65-4.709,13.585c-0.29,13.59,3.971,18.836,13.22,28.49
+	c1.568,1.636,2.21,3.71,2.21,5.34c0,4.17-3.37,7.55-7.54,7.55c-2.12,0-4.577-1.153-6.15-2.538
+	C83.705,105.263,74.82,87.81,74.82,68.45c0-12.71,3.48-24.45,9.37-33.88C66.24,14.58,40.5,2,11.51,2C8.41,2,5.03,2.14,2,2.43
+	c13.24,8.38,22.03,23.17,22.03,40.01c0,14.58-6.61,27.63-16.98,36.32c20.65,3.52,36.38,21.5,36.38,43.16c0,2.46-0.22,4.87-0.61,7.22
+	c1.58-0.12,3.19-0.14,4.81-0.18c23.49-0.55,50.13,10.28,54.41,34.65c3.001,17.083,8.651,34.848,19.044,51.649
+	c6.887,11.134,9.048,20.47,0.406,27.359c-6.999,5.58-21.841,5.69-28.254-19.934c4.904,0.215,9.421,1.975,13.04,4.836l-14.892-28.477
+	l-13.847,29c3.422-2.914,7.733-4.824,12.477-5.284c0.087,8.824,1.582,19.814,7.546,25.859c5.677,5.754,13.29,9.382,20.95,9.382
+	c8,0,15.367-3.168,21.48-8.95c7.488-7.082,14.878-18.717,6.016-42.533c-7.1-19.08-8.282-31.556-4.191-45.483
+	c5.955-20.274,30.127-32.074,53.555-32.074c1.62,0,3.22,0.06,4.81,0.18c-0.39-2.36-0.61-4.76-0.61-7.22
+	c0-21.66,15.73-39.64,36.38-43.16C225.58,70.07,218.97,57.02,218.97,42.44z" />
+</svg>
+
+<svg height="800px" width="800px" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 490.901 490.901" xml:space="preserve">
+	<path id="dove" d="M287.888,141.208c2.237,0.834,4.749-0.055,5.965-2.109c1.215-2.054,0.785-4.685-1.023-6.244
+		C197.399,50.557,148.923,24.099,131.106,16.198c-1.832-0.817-3.962-0.633-5.652,0.489c-1.688,1.114-2.675,3.016-2.642,5.03
+		c0.463,21.971,4.456,45.057,10.411,67.952C173.396,101.022,224.197,117.461,287.888,141.208z M488.453,148.817l-38.178-13.829c-5.776-22.291-22.926-44.103-68.938-44.103c-22.465,0-39.466,15.683-48.987,34.04
+		l-0.018-0.006c0,0-11.86,23.888-30.375,39.039c-191.15-72.8-271.473-82.196-295.881-82.96c-0.061,0-0.124,0-0.189,0
+		c-1.913,0-3.727,0.939-4.841,2.533c-1.13,1.643-1.367,3.751-0.603,5.596c30.17,73.73,101.497,145.106,151.918,189.152
+		C90.874,333.629,47.394,400.817,24.388,441.405c-4.11,7.245-3.885,16.152,0.542,23.2c4.425,7.043,12.354,11.096,20.662,10.554
+		l163.83-10.779c2.004-0.127,3.852-1.099,5.095-2.65c1.274-1.561,1.814-3.572,1.515-5.549
+		c-12.739-85.527,33.434-117.329,34.435-118.016c13.598,6.384,50.148,11.243,72.982,8.83
+		c39.404-4.164,109.602-25.107,101.848-101.117c-3.457-28.489,4.888-57.067,22.908-79.293l38.485-10.318
+		c2.084-0.564,3.708-2.005,4.12-3.655C491.208,150.98,490.272,149.47,488.453,148.817z" />
+</svg>
+* {
+	padding: 0;
+	margin: 0;
+	box-sizing: border-box;
+}
+body {
+	position: relative;
+	min-height: 100vh;
+	display: grid;
+	place-items: center;
+	background: #998238;
+	font-family: system-ui, sans-serif;
+	font-size: clamp(1rem, 2.5vw, 1.5rem);
+	line-height: 1.2;
+}
+body > * {
+	grid-area: 1/1;
+}
+svg {
+	width: 15em;
+	height: 15em;
+	overflow: visible;
+}
+
+#dove {
+	width: 0;
+	height: 0;
+	visibility: hidden;
+}
+
 
   <script>
-  async function sendMessage() {
-    const input = document.getElementById("userInput");
-    const userText = input.value.trim();
-    if (!userText) return;
+ gsap.registerPlugin(MorphSVGPlugin);
 
-    const chatbox = document.getElementById("chatbox");
+gsap.to("#dragon", {
+	scale: 0.5,
+	fill: "#f0ead6",
+	delay: 1,
+	duration: 2,
+	ease: "expo.inOut",
+	morphSVG: {
+		shape: "#dove"
+	},
+	repeat: 2,
+	repeatDelay: 1,
+	yoyo: true
+});
 
-    const userMsg = document.createElement("div");
-    userMsg.className = "message user";
-    userMsg.textContent = "You: " + userText;
-    chatbox.appendChild(userMsg);
-    chatbox.scrollTop = chatbox.scrollHeight;
-
-    input.value = "Thinking...";
-
-    let botReply = "";
-
-    try {
-      // ✅ Use proxy to bypass CORS
-      const duckURL = `https://corsproxy.io/?https://api.duckduckgo.com/?q=${encodeURIComponent(userText)}&format=json&no_redirect=1&no_html=1`;
-      const res = await fetch(duckURL);
-      const data = await res.json();
-      botReply = data.AbstractText || data.Answer;
-
-      if (!botReply || botReply.trim() === "") {
-        const wikiURL = `https://en.wikipedia.org/api/rest_v1/page/summary/${encodeURIComponent(userText)}`;
-        const wiki = await fetch(wikiURL);
-        const wikiData = await wiki.json();
-        botReply = wikiData.extract || "আমি এখন এই প্রশ্নের উত্তর দিতে পারছি না। দয়া করে সহজভাবে জিজ্ঞেস করুন।";
-      }
-    } catch (err) {
-      botReply = "দুঃখিত, কিছু সমস্যা হয়েছে। পরে আবার চেষ্টা করুন।";
-    }
-
-    const botMsg = document.createElement("div");
-    botMsg.className = "message bot";
-    botMsg.textContent = "Bot: " + botReply;
-    chatbox.appendChild(botMsg);
-    chatbox.scrollTop = chatbox.scrollHeight;
-
-    input.value = "";
-  }
 </script>
 
 </body>
